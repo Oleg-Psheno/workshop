@@ -15,7 +15,11 @@
         <li>{{ job.job }} {{ job.job.regular_price }} {{ job.quantity }}</li>
     {% endfor %}
 <p>Запчасти</p>
-
+<ul>
+    {% for part in parts %}
+        <li>{{ part.part.name }} {{ part.part.brand }} {{ part.part.customer_price }} {{ part.quantity }}</li>
+    {% endfor %}
+</ul>
 </ul>
 </body>
 </html>

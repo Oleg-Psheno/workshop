@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import WorkOrder, Job, WorkItem
-
+from .models import WorkOrder, Job, WorkItem, PartItem
 class OrderView(ListView):
     model = WorkOrder
     template_name = 'order.html'
@@ -16,7 +15,7 @@ class OrderDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(OrderDetailView, self).get_context_data(**kwargs)
         context['jobs'] = WorkItem.objects.filter(order_id=context['object'].id)
-
+        context['parts'] = PartItem.objects.filter(order_id=context['object'].id)
         print(context)
         return context
 
