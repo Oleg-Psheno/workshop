@@ -18,13 +18,14 @@ from django.urls import path, re_path
 from mainapp.views import IndexView
 from django.conf import settings
 from django.conf.urls.static import static
-from workorder.views import OrderView, OrderDetailView
+from workorder.views import OrderView, OrderDetailView, CreateOrderView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('order/', OrderView.as_view(), name = 'order'),
-    path('order/<int:pk>/', OrderDetailView.as_view(), name = 'detail'),
+    path('orders/', OrderView.as_view(), name = 'order'),
+    path('orders/<int:pk>/', OrderDetailView.as_view(), name = 'detail'),
+    path('orders/create-order/', CreateOrderView.as_view(), name = 'create'),
 ]
 
 if settings.DEBUG:
