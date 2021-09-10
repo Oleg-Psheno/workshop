@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=django
+Group=www-data
+WorkingDirectory=/home/django/ws-site
+ExecStart=/home/django/ws_venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/django/ws-site/workshop.sock workshop.wsgi
+
+[Install]
+WantedBy=multi-user.target

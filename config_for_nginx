@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name 89.108.103.15;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/django/ws-site;
+    }
+
+    location /media/ {
+        root /home/django/ws-site;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/django/ws-site/workshop.sock;
+    }
+}

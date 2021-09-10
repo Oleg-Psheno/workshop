@@ -11,7 +11,7 @@ class Order(models.Model):
     ORDER_STATUS_CHOISES = ((FORMING,'формируется'),(READY,'обработан'),(DONE,'выполнен'),)
 
     user = models.CharField(max_length=20)
-    phone = models.CharField(max_length=12, blank=True, null=True)
+    phone = models.CharField(max_length=18, blank=True, null=True)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     status = models.CharField(max_length=2, choices=ORDER_STATUS_CHOISES,default=FORMING)
