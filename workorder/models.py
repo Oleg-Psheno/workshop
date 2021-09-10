@@ -20,7 +20,7 @@ class WorkOrder(models.Model):
     pay_status = models.CharField(max_length=2, choices=PAY_STATUS_CHOISES, default=NOT_PAID)
 
     def __str__(self):
-        return f'Заказ клиента {self.employee} от {self.created_at}'
+        return f'Заказ №{self.id} клиента {self.client} от {self.created_at}'
 
 class Job(models.Model):
     name = models.CharField(max_length=128)
@@ -33,7 +33,7 @@ class Job(models.Model):
 class WorkItem(models.Model):
     order = models.ForeignKey(WorkOrder, on_delete=models.CASCADE, related_name='order')
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
-
+    quantity = models.IntegerField(verbose_name='количество', default=1)
     def __str__(self):
         return f'К заказу {self.order_id}'
 # class WorkPartItme(models.Model):

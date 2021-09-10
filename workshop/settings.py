@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'mainapp',
     'workorder',
     'authapp',
+    'parts'
 ]
 
 MIDDLEWARE = [

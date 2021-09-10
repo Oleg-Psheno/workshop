@@ -6,5 +6,11 @@
 </head>
 <body>
 <h1>Work Order</h1>
+<ul>
+    {% for order in orders %}
+        <li>{{ order.id }} {{ order.client }} {{ order.status }} <a href="/order/{{ order.id }}/">link</a></li>
+    {% endfor %}
+</ul>
+
 </body>
 </html>
